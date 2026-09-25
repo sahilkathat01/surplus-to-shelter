@@ -1,0 +1,10 @@
+# Office lock / temp files
+~$*
+*.tmp
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Local test scratch (not a deliverable)
+pdf-test.png

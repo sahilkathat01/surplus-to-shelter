@@ -1,0 +1,1883 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#153f34" />
+  <title>Surplus-to-Shelter — Pitch Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f1eadb;
+      --paper: #faf6ec;
+      --forest: #153f34;
+      --forest-deep: #0d2d25;
+      --rust: #c65a37;
+      --rust-deep: #963d26;
+      --ink: #20352d;
+      --muted: #6b746b;
+      --rule: rgba(21, 63, 52, 0.25);
+      --soft-rule: rgba(21, 63, 52, 0.12);
+      --white-cream: #fffaf0;
+      --display: "Bodoni Moda", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", Arial, sans-serif;
+      --mono: "IBM Plex Mono", Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #d9d0bf;
+      color: var(--ink);
+      font-family: var(--sans);
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.2vw;
+      padding: 2.2vw 0;
+    }
+
+    .deck {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.2vw;
+    }
+
+    .slide {
+      position: relative;
+      width: min(100vw, 177.7778vh);
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      container-type: inline-size;
+      background: var(--cream);
+      box-shadow: 0 1.2cqw 4cqw rgba(20, 35, 28, 0.19);
+      isolation: isolate;
+    }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      pointer-events: none;
+      opacity: 0.13;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+    }
+
+    .slide-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      padding: 4.4cqw 4.6cqw 3.3cqw;
+    }
+
+    .mono,
+    .eyebrow,
+    .slide-number,
+    .mini-label,
+    .metric-unit,
+    .card-index,
+    .footer,
+    .topline,
+    .tag,
+    .formula-label,
+    .certificate-kicker,
+    .certificate-meta {
+      font-family: var(--mono);
+    }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 2.1cqw;
+      padding-bottom: 1.25cqw;
+      border-bottom: 1px solid var(--rule);
+      color: var(--forest);
+      font-size: 0.72cqw;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .topline .folio {
+      display: flex;
+      align-items: center;
+      gap: 1.1cqw;
+    }
+
+    .live-dot {
+      width: 0.55cqw;
+      height: 0.55cqw;
+      border-radius: 50%;
+      background: var(--rust);
+      box-shadow: 0 0 0 0.27cqw rgba(198, 90, 55, 0.16);
+    }
+
+    .slide-title {
+      margin: 1.45cqw 0 0;
+      max-width: 88%;
+      color: var(--forest);
+      font-family: var(--display);
+      font-size: 3.55cqw;
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 0.98;
+    }
+
+    .title-italic {
+      font-style: italic;
+      color: var(--rust);
+    }
+
+    .section-mark {
+      display: flex;
+      align-items: center;
+      gap: 0.8cqw;
+      color: var(--rust);
+      font-size: 0.7cqw;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .section-mark::before {
+      content: "";
+      width: 2.2cqw;
+      height: 0.22cqw;
+      background: var(--rust);
+    }
+
+    .footer {
+      position: absolute;
+      left: 4.6cqw;
+      right: 4.6cqw;
+      bottom: 2.1cqw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 0.61cqw;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer strong {
+      color: var(--forest);
+      font-weight: 600;
+    }
+
+    .page-rule {
+      flex: 1;
+      height: 1px;
+      margin: 0 1.3cqw;
+      background: var(--rule);
+    }
+
+    /* Slide 1 */
+    .cover {
+      background: var(--paper);
+    }
+
+    .cover .slide-inner {
+      padding: 0;
+    }
+
+    .cover-grid {
+      display: grid;
+      grid-template-columns: 63% 37%;
+      height: 100%;
+    }
+
+    .cover-copy {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 3.4cqw 4.7cqw 3cqw;
+    }
+
+    .cover-masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.69cqw;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 0.85cqw;
+      color: var(--forest);
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 1.45cqw;
+      height: 1.45cqw;
+      border: 1px solid var(--forest);
+      border-radius: 50%;
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 0.45cqw;
+      height: 0.45cqw;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+
+    .brand-mark::before { left: 0.2cqw; background: var(--rust); }
+    .brand-mark::after { right: 0.2cqw; background: var(--forest); }
+
+    .cover-date {
+      color: var(--muted);
+      font-family: var(--mono);
+    }
+
+    .cover-title-wrap {
+      margin-top: 2.2cqw;
+      max-width: 88%;
+    }
+
+    .cover-kicker {
+      display: flex;
+      align-items: center;
+      gap: 0.7cqw;
+      margin-bottom: 1.15cqw;
+      color: var(--rust);
+      font-family: var(--mono);
+      font-size: 0.74cqw;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .cover-kicker::before {
+      content: "";
+      display: block;
+      width: 2.5cqw;
+      height: 0.22cqw;
+      background: var(--rust);
+    }
+
+    .cover h1 {
+      margin: 0;
+      color: var(--forest);
+      font-family: var(--display);
+      font-size: 7.15cqw;
+      font-weight: 600;
+      letter-spacing: -0.065em;
+      line-height: 0.82;
+    }
+
+    .cover h1 span {
+      display: block;
+    }
+
+    .cover h1 .accent {
+      color: var(--rust);
+      font-style: italic;
+    }
+
+    .cover-subtitle {
+      max-width: 72%;
+      margin: 1.75cqw 0 0;
+      color: var(--ink);
+      font-size: 1.25cqw;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+    }
+
+    .cover-footer {
+      display: flex;
+      align-items: center;
+      gap: 1.15cqw;
+      padding-top: 1.5cqw;
+      border-top: 1px solid var(--rule);
+      color: var(--forest);
+      font-family: var(--mono);
+      font-size: 0.66cqw;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .cover-footer .sep {
+      color: var(--rust);
+      font-weight: 600;
+    }
+
+    .cover-figure {
+      position: relative;
+      overflow: hidden;
+      background: var(--forest);
+      color: var(--cream);
+    }
+
+    .cover-figure::before,
+    .cover-figure::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(241, 234, 219, 0.16);
+      border-radius: 50%;
+    }
+
+    .cover-figure::before {
+      width: 45cqw;
+      height: 45cqw;
+      right: -20cqw;
+      top: -8cqw;
+    }
+
+    .cover-figure::after {
+      width: 31cqw;
+      height: 31cqw;
+      right: -13cqw;
+      top: -1cqw;
+    }
+
+    .figure-head {
+      position: absolute;
+      left: 2.5cqw;
+      right: 2.5cqw;
+      top: 3.4cqw;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1.1cqw;
+      border-bottom: 1px solid rgba(241, 234, 219, 0.28);
+      color: rgba(241, 234, 219, 0.72);
+      font-family: var(--mono);
+      font-size: 0.62cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .route-card {
+      position: absolute;
+      left: 2.5cqw;
+      right: 2.5cqw;
+      top: 14.2cqw;
+    }
+
+    .route-label {
+      color: var(--rust);
+      font-family: var(--mono);
+      font-size: 0.68cqw;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .distance {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 0.6cqw;
+      font-family: var(--display);
+      font-size: 9.2cqw;
+      font-weight: 500;
+      letter-spacing: -0.08em;
+      line-height: 0.9;
+    }
+
+    .distance .unit {
+      margin: 0.6cqw 0 0 0.45cqw;
+      color: var(--rust);
+      font-family: var(--mono);
+      font-size: 1.05cqw;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .distance-note {
+      margin-top: 0.9cqw;
+      color: rgba(241, 234, 219, 0.7);
+      font-size: 0.7cqw;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .route {
+      position: relative;
+      height: 13.5cqw;
+      margin-top: 3.2cqw;
+    }
+
+    .route-line {
+      position: absolute;
+      left: 1cqw;
+      right: 1cqw;
+      top: 6.2cqw;
+      height: 1px;
+      background: repeating-linear-gradient(to right, rgba(241,234,219,.7) 0 0.55cqw, transparent 0.55cqw 1.15cqw);
+    }
+
+    .route-node {
+      position: absolute;
+      top: 5.25cqw;
+      width: 1.95cqw;
+      height: 1.95cqw;
+      border: 1px solid var(--cream);
+      border-radius: 50%;
+      background: var(--forest);
+    }
+
+    .route-node::after {
+      content: "";
+      position: absolute;
+      inset: 0.36cqw;
+      border-radius: 50%;
+      background: var(--cream);
+    }
+
+    .route-node.node-a { left: 0; border-color: var(--rust); }
+    .route-node.node-a::after { background: var(--rust); }
+    .route-node.node-b { right: 0; }
+    .route-node.node-c { left: 51%; }
+
+    .node-text {
+      position: absolute;
+      top: 8.1cqw;
+      color: rgba(241, 234, 219, 0.72);
+      font-family: var(--mono);
+      font-size: 0.58cqw;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .node-a-text { left: -0.1cqw; }
+    .node-b-text { right: -0.1cqw; text-align: right; }
+    .node-c-text { left: 51%; transform: translateX(-50%); text-align: center; color: var(--rust); }
+
+    .bridge-box {
+      position: absolute;
+      left: 2.5cqw;
+      right: 2.5cqw;
+      bottom: 2.8cqw;
+      padding: 1.35cqw 0 0;
+      border-top: 1px solid rgba(241, 234, 219, 0.28);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 1cqw;
+    }
+
+    .bridge-title {
+      font-family: var(--display);
+      font-size: 1.45cqw;
+      font-style: italic;
+    }
+
+    .bridge-time {
+      color: var(--rust);
+      font-family: var(--mono);
+      font-size: 1.1cqw;
+      font-weight: 600;
+    }
+
+    /* Slide 2 */
+    .hook-content {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 1.65cqw;
+      height: 78.3%;
+      margin-top: 2.15cqw;
+    }
+
+    .hook-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.25cqw;
+    }
+
+    .hook-grid::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 13.4cqw;
+      width: 1px;
+      height: 11.4cqw;
+      background: var(--rule);
+    }
+
+    .hook-grid::after {
+      content: "";
+      position: absolute;
+      left: calc(50% - 0.38cqw);
+      top: 17.6cqw;
+      width: 0.76cqw;
+      height: 0.76cqw;
+      border: 1px solid var(--rust);
+      border-radius: 50%;
+      background: var(--cream);
+    }
+
+    .hook-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.8cqw 2.1cqw 1.65cqw;
+      border-top: 0.7cqw solid var(--rust);
+      border-bottom: 1px solid var(--rule);
+      background: rgba(250, 246, 236, 0.55);
+    }
+
+    .hook-card.shelter {
+      border-top-color: var(--forest);
+    }
+
+    .hook-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.69cqw;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hook-card-id {
+      color: var(--rust);
+      font-family: var(--mono);
+      font-size: 0.67cqw;
+    }
+
+    .shelter .hook-card-id { color: var(--forest); }
+
+    .hook-stat {
+      margin: 0.45cqw 0 0.35cqw;
+      color: var(--forest);
+      font-family: var(--display);
+      font-size: 5.8cqw;
+      font-weight: 600;
+      letter-spacing: -0.06em;
+      line-height: 0.92;
+    }
+
+    .shelter .hook-stat { color: var(--rust); }
+
+    .hook-copy {
+      max-width: 85%;
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.03cqw;
+      line-height: 1.45;
+    }
+
+    .hook-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 1.2cqw;
+      padding-top: 1cqw;
+      border-top: 1px solid var(--soft-rule);
+    }
+
+    .hook-card-bottom .term {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.58cqw;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hook-card-bottom .signal {
+      color: var(--rust);
+      font-family: var(--mono);
+      font-size: 0.66cqw;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .shelter .hook-card-bottom .signal { color: var(--forest); }
+
+    .hook-highlight {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 1.35cqw;
+      min-height: 4.1cqw;
+      padding: 0.75cqw 1.45cqw;
+      background: var(--rust);
+      color: var(--white-cream);
+    }
+
+    .highlight-index {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4cqw;
+      height: 2.4cqw;
+      border: 1px solid rgba(255, 250, 240, 0.7);
+      border-radius: 50%;
+      font-family: var(--mono);
+      font-size: 0.62cqw;
+    }
+
+    .hook-highlight p {
+      margin: 0;
+      font-family: var(--display);
+      font-size: 1.65cqw;
+      font-style: italic;
+      line-height: 1.15;
+    }
+
+    /* Slide 3 */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.45cqw;
+      height: 64.2%;
+      margin-top: 2.15cqw;
+    }
+
+    .problem-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 1.5cqw 1.55cqw 1.25cqw;
+      border: 1px solid var(--rule);
+      background: rgba(250, 246, 236, 0.53);
+    }
+
+    .problem-card:nth-child(2) {
+      background: var(--forest);
+      color: var(--cream);
+    }
+
+    .card-index {
+      color: var(--rust);
+      font-size: 0.66cqw;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+    }
+
+    .problem-card:nth-child(2) .card-index { color: #e88765; }
+
+    .problem-stat {
+      margin-top: 1.3cqw;
+      color: var(--forest);
+      font-family: var(--display);
+      font-size: 4.25cqw;
+      font-weight: 600;
+      letter-spacing: -0.055em;
+      line-height: 0.9;
+    }
+
+    .problem-card:nth-child(2) .problem-stat { color: var(--paper); }
+    .problem-card:nth-child(3) .problem-stat { color: var(--rust); }
+
+    .problem-copy {
+      max-width: 90%;
+      margin: 1.1cqw 0 0;
+      color: var(--ink);
+      font-size: 0.98cqw;
+      line-height: 1.42;
+    }
+
+    .problem-card:nth-child(2) .problem-copy { color: rgba(241, 234, 219, 0.78); }
+
+    .data-viz {
+      position: relative;
+      margin-top: auto;
+      padding-top: 1.1cqw;
+      border-top: 1px solid var(--soft-rule);
+    }
+
+    .problem-card:nth-child(2) .data-viz { border-top-color: rgba(241, 234, 219, 0.18); }
+
+    .mini-label {
+      color: var(--muted);
+      font-size: 0.55cqw;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .problem-card:nth-child(2) .mini-label { color: rgba(241, 234, 219, 0.55); }
+
+    .time-bars {
+      display: grid;
+      gap: 0.48cqw;
+      margin-top: 0.85cqw;
+    }
+
+    .time-row {
+      display: grid;
+      grid-template-columns: 2.7cqw 1fr;
+      align-items: center;
+      gap: 0.65cqw;
+      font-family: var(--mono);
+      font-size: 0.53cqw;
+    }
+
+    .bar-track {
+      position: relative;
+      height: 0.45cqw;
+      background: rgba(21, 63, 52, 0.12);
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--rust);
+    }
+
+    .bar-fill.green { background: var(--forest); }
+
+    .capacity-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.38cqw;
+      margin-top: 0.85cqw;
+    }
+
+    .capacity-cell {
+      aspect-ratio: 1;
+      border: 1px solid rgba(241, 234, 219, 0.25);
+    }
+
+    .capacity-cell.filled { background: rgba(241, 234, 219, 0.16); }
+    .capacity-cell.unknown { background: var(--rust); }
+
+    .cost-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65cqw;
+      margin-top: 0.72cqw;
+    }
+
+    .cost-lane {
+      padding: 0.65cqw;
+      border: 1px solid var(--rule);
+    }
+
+    .cost-lane strong {
+      display: block;
+      color: var(--rust);
+      font-family: var(--display);
+      font-size: 1.25cqw;
+      line-height: 1;
+    }
+
+    .cost-lane span {
+      display: block;
+      margin-top: 0.35cqw;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.48cqw;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .problem-baseline {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 1cqw;
+      margin-top: 1.2cqw;
+      padding-top: 0.95cqw;
+      border-top: 1px solid var(--rule);
+    }
+
+    .baseline-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55cqw;
+      color: var(--muted);
+      font-size: 0.63cqw;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .baseline-item::before {
+      content: "";
+      width: 0.42cqw;
+      height: 0.42cqw;
+      border: 1px solid var(--rust);
+    }
+
+    .baseline-item::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--soft-rule);
+    }
+
+    .baseline-lock {
+      color: var(--rust);
+      font-family: var(--display);
+      font-size: 1.1cqw;
+      font-style: italic;
+    }
+
+    /* Slide 4 */
+    .pipeline {
+      display: grid;
+      grid-template-columns: auto 1fr auto 1fr auto;
+      align-items: center;
+      gap: 0.8cqw;
+      margin-top: 1.4cqw;
+      padding: 0.75cqw 1cqw;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .pipeline-node {
+      display: flex;
+      align-items: center;
+      gap: 0.6cqw;
+      color: var(--forest);
+      font-family: var(--mono);
+      font-size: 0.59cqw;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .pipeline-node::before {
+      content: "";
+      width: 0.5cqw;
+      height: 0.5cqw;
+      border: 1px solid var(--rust);
+      transform: rotate(45deg);
+    }
+
+    .pipeline-link {
+      height: 1px;
+      background: repeating-linear-gradient(to right, var(--rule) 0 0.45cqw, transparent 0.45cqw 0.85cqw);
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.45cqw;
+      height: 57.8%;
+      margin-top: 1.45cqw;
+    }
+
+    .solution-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 1.35cqw 1.55cqw 1.25cqw;
+      border: 1px solid var(--rule);
+      background: var(--paper);
+    }
+
+    .solution-card::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 1.2cqw;
+      height: 1.2cqw;
+      border-left: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      background: var(--cream);
+    }
+
+    .solution-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tag {
+      padding: 0.35cqw 0.48cqw;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 0.52cqw;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .tag.alert {
+      border-color: var(--rust);
+      color: var(--rust);
+    }
+
+    .solution-stat {
+      margin-top: 1.25cqw;
+      color: var(--forest);
+      font-family: var(--display);
+      font-size: 3.6cqw;
+      font-weight: 600;
+      letter-spacing: -0.055em;
+      line-height: 0.92;
+    }
+
+    .solution-card:nth-child(2) .solution-stat { color: var(--rust); }
+
+    .solution-copy {
+      max-width: 88%;
+      margin: 0.95cqw 0 0;
+      color: var(--ink);
+      font-size: 0.95cqw;
+      line-height: 1.4;
+    }
+
+    .card-visual {
+      margin-top: auto;
+      padding-top: 1.05cqw;
+      border-top: 1px solid var(--soft-rule);
+    }
+
+    .form-lines {
+      display: grid;
+      gap: 0.48cqw;
+      margin-top: 0.75cqw;
+    }
+
+    .form-line {
+      height: 0.34cqw;
+      background: linear-gradient(to right, var(--soft-rule) 0 27%, transparent 27% 30%, var(--soft-rule) 30% 100%);
+    }
+
+    .form-line.short { width: 69%; }
+
+    .triage-scale {
+      position: relative;
+      height: 1.05cqw;
+      margin: 0.82cqw 0 0.2cqw;
+      background: linear-gradient(to right, var(--rust) 0 66%, rgba(21,63,52,.12) 66% 100%);
+    }
+
+    .triage-scale::before,
+    .triage-scale::after {
+      position: absolute;
+      top: 0.3cqw;
+      font-family: var(--mono);
+      font-size: 0.47cqw;
+      letter-spacing: 0.08em;
+    }
+
+    .triage-scale::before { left: 0; content: "URGENT"; color: var(--rust); }
+    .triage-scale::after { right: 0; content: "SAFE"; color: var(--muted); }
+
+    .capacity-meter {
+      margin-top: 0.8cqw;
+    }
+
+    .meter-track {
+      display: flex;
+      height: 0.72cqw;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+    }
+
+    .meter-track span { flex: 1; border-right: 1px solid var(--rule); }
+    .meter-track span:last-child { border-right: 0; }
+    .meter-track span:nth-child(-n+3) { background: var(--rust); }
+
+    .meter-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.35cqw;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.47cqw;
+    }
+
+    /* Slide 5 */
+    .architecture-band {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr 1fr 1fr;
+      gap: 0.8cqw;
+      align-items: center;
+      margin-top: 1.35cqw;
+    }
+
+    .arch-node {
+      position: relative;
+      padding: 0.72cqw 0.85cqw;
+      border: 1px solid var(--rule);
+      background: rgba(250,246,236,.56);
+      color: var(--forest);
+      font-family: var(--mono);
+      font-size: 0.58cqw;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .arch-node.core {
+      background: var(--forest);
+      color: var(--cream);
+    }
+
+    .arch-node:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -0.8cqw;
+      top: 50%;
+      color: var(--rust);
+      font-family: var(--sans);
+      font-size: 0.9cqw;
+      transform: translateY(-50%);
+    }
+
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.45cqw;
+      height: 57.5%;
+      margin-top: 1.35cqw;
+    }
+
+    .risk-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 1.4cqw 1.5cqw 1.2cqw;
+      border-top: 0.65cqw solid var(--rust);
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      border-left: 1px solid var(--rule);
+      background: rgba(250, 246, 236, 0.63);
+    }
+
+    .risk-card:nth-child(2) { border-top-color: var(--forest); }
+    .risk-card:nth-child(3) { border-top-color: var(--rust-deep); }
+
+    .risk-title {
+      margin: 1.1cqw 0 0;
+      color: var(--forest);
+      font-family: var(--display);
+      font-size: 2.05cqw;
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1;
+    }
+
+    .risk-copy {
+      max-width: 91%;
+      margin: 0.95cqw 0 0;
+      color: var(--ink);
+      font-size: 0.88cqw;
+      line-height: 1.42;
+    }
+
+    .risk-visual {
+      margin-top: auto;
+      padding-top: 1cqw;
+      border-top: 1px solid var(--soft-rule);
+    }
+
+    .cutoff-track {
+      position: relative;
+      height: 0.72cqw;
+      margin-top: 0.75cqw;
+      background: linear-gradient(to right, var(--rust) 0 62%, rgba(21,63,52,.14) 62% 100%);
+    }
+
+    .cutoff-marker {
+      position: absolute;
+      left: 62%;
+      top: -0.45cqw;
+      width: 1px;
+      height: 1.6cqw;
+      background: var(--forest);
+    }
+
+    .cutoff-marker::after {
+      content: "45 MIN";
+      position: absolute;
+      top: -0.15cqw;
+      left: 0.45cqw;
+      color: var(--forest);
+      font-family: var(--mono);
+      font-size: 0.48cqw;
+      font-weight: 600;
+    }
+
+    .cascade {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 0.5cqw;
+      margin-top: 0.75cqw;
+    }
+
+    .cascade-node {
+      padding: 0.58cqw 0.4cqw;
+      border: 1px solid var(--rule);
+      color: var(--forest);
+      font-family: var(--mono);
+      font-size: 0.48cqw;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .cascade-node.active { background: var(--rust); border-color: var(--rust); color: var(--cream); }
+    .cascade-arrow { color: var(--rust); font-size: 0.8cqw; }
+
+    .sync-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.82cqw;
+      padding: 0.65cqw 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      color: var(--forest);
+      font-family: var(--mono);
+      font-size: 0.5cqw;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .sync-row i {
+      width: 0.38cqw;
+      height: 0.38cqw;
+      border-radius: 50%;
+      background: var(--rust);
+      box-shadow: 0 0 0 0.25cqw rgba(198,90,55,.12);
+    }
+
+    /* Slide 6 */
+    .impact {
+      background: var(--forest);
+      color: var(--cream);
+    }
+
+    .impact .slide-inner { padding: 3.4cqw 4.6cqw 3.3cqw; }
+    .impact::after { opacity: 0.18; }
+
+    .impact .topline {
+      color: var(--cream);
+      border-bottom-color: rgba(241, 234, 219, 0.28);
+    }
+
+    .impact .slide-title {
+      max-width: 84%;
+      color: var(--paper);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 0.93fr 1.07fr;
+      gap: 3.0cqw;
+      height: 67.2%;
+      margin-top: 1.65cqw;
+    }
+
+    .formula-stack {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      border-top: 1px solid rgba(241, 234, 219, 0.3);
+    }
+
+    .formula-row {
+      display: grid;
+      grid-template-columns: 10.5cqw 1fr;
+      align-items: center;
+      gap: 1.1cqw;
+      border-bottom: 1px solid rgba(241, 234, 219, 0.3);
+    }
+
+    .formula-label {
+      color: #eb8a68;
+      font-size: 0.64cqw;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .formula {
+      color: var(--paper);
+      font-family: var(--display);
+      font-size: 2.05cqw;
+      letter-spacing: -0.025em;
+    }
+
+    .formula .variable {
+      color: var(--rust);
+      font-style: italic;
+    }
+
+    .certificate-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .certificate {
+      position: relative;
+      width: 100%;
+      min-height: 26.2cqw;
+      padding: 1.25cqw 1.5cqw 1.15cqw;
+      border: 1px solid var(--forest);
+      outline: 1px solid var(--forest);
+      outline-offset: -0.42cqw;
+      background: var(--paper);
+      color: var(--forest);
+      transform: rotate(-0.7deg);
+      box-shadow: 0.7cqw 0.9cqw 0 rgba(13, 45, 37, 0.34);
+    }
+
+    .certificate::before,
+    .certificate::after {
+      content: "";
+      position: absolute;
+      width: 1.15cqw;
+      height: 1.15cqw;
+      border: 1px solid var(--rust);
+      transform: rotate(45deg);
+    }
+
+    .certificate::before { left: 0.72cqw; top: 0.72cqw; }
+    .certificate::after { right: 0.72cqw; bottom: 0.72cqw; }
+
+    .certificate-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.8cqw;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .certificate-kicker {
+      color: var(--rust);
+      font-size: 0.62cqw;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .live-stamp {
+      display: flex;
+      align-items: center;
+      gap: 0.4cqw;
+      color: var(--forest);
+      font-family: var(--mono);
+      font-size: 0.54cqw;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .live-stamp::before {
+      content: "";
+      width: 0.42cqw;
+      height: 0.42cqw;
+      border-radius: 50%;
+      background: var(--rust);
+    }
+
+    .certificate-title {
+      margin: 1.15cqw 0 0.3cqw;
+      font-family: var(--display);
+      font-size: 2.2cqw;
+      font-weight: 600;
+      letter-spacing: -0.035em;
+    }
+
+    .certificate-sub {
+      color: var(--muted);
+      font-size: 0.65cqw;
+      letter-spacing: 0.04em;
+    }
+
+    .certificate-input {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin: 1cqw 0 0.8cqw;
+      padding: 0.7cqw 0;
+      border-top: 1px solid var(--soft-rule);
+      border-bottom: 1px solid var(--soft-rule);
+    }
+
+    .certificate-input span {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.53cqw;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .certificate-input strong {
+      color: var(--rust);
+      font-family: var(--display);
+      font-size: 1.8cqw;
+      line-height: 1;
+    }
+
+    .certificate-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--rule);
+    }
+
+    .certificate-result {
+      padding: 0.75cqw 0.65cqw;
+      border-right: 1px solid var(--rule);
+    }
+
+    .certificate-result:last-child { border-right: 0; }
+
+    .result-value {
+      display: block;
+      color: var(--forest);
+      font-family: var(--display);
+      font-size: 1.9cqw;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .result-label {
+      display: block;
+      margin-top: 0.42cqw;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.44cqw;
+      line-height: 1.25;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .certificate-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.75cqw;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.46cqw;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .impact-note {
+      position: absolute;
+      left: 4.6cqw;
+      right: 4.6cqw;
+      bottom: 2.15cqw;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1cqw;
+      padding-top: 0.9cqw;
+      border-top: 1px solid rgba(241, 234, 219, 0.32);
+    }
+
+    .impact-note .note-label {
+      color: #eb8a68;
+      font-family: var(--mono);
+      font-size: 0.55cqw;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .impact-note p {
+      margin: 0;
+      color: var(--paper);
+      font-family: var(--display);
+      font-size: 1.08cqw;
+      font-style: italic;
+    }
+
+    .impact-note .folio {
+      color: rgba(241,234,219,.55);
+      font-family: var(--mono);
+      font-size: 0.58cqw;
+    }
+
+    .screen-hint {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 100;
+      padding: 0.55rem 0.7rem;
+      border: 1px solid rgba(21,63,52,.25);
+      background: rgba(250,246,236,.9);
+      color: var(--forest);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease;
+    }
+
+    body:hover .screen-hint { opacity: 0.75; }
+
+    @media (max-width: 700px) {
+      body { padding: 0; gap: 1px; }
+      .deck { gap: 1px; }
+      .slide { width: 100vw; }
+      .screen-hint { display: none; }
+    }
+
+    @media print {
+      @page { size: 13.333333in 7.5in; margin: 0; }
+      html, body {
+        width: 13.333333in;
+        margin: 0;
+        padding: 0;
+        background: var(--cream);
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+      body { display: block; }
+      .deck { display: block; width: 13.333333in; }
+      .slide {
+        width: 13.333333in;
+        height: 7.5in;
+        aspect-ratio: auto;
+        break-after: page;
+        page-break-after: always;
+        box-shadow: none;
+      }
+      .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .screen-hint { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" aria-label="Surplus-to-Shelter pitch deck">
+    <section class="slide cover" id="slide-1" aria-label="Slide 1: Title">
+      <div class="slide-inner">
+        <div class="cover-grid">
+          <div class="cover-copy">
+            <div class="cover-masthead">
+              <div class="brand-lockup">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <span>TechCypher / Impact Systems</span>
+              </div>
+              <span class="cover-date">Track A — Field Brief</span>
+            </div>
+
+            <div class="cover-title-wrap">
+              <div class="cover-kicker">Real-time food rescue</div>
+              <h1><span>Surplus-to-</span><span class="accent">Shelter</span></h1>
+              <p class="cover-subtitle">Real-time algorithmic food rescue engine.</p>
+            </div>
+
+            <div class="cover-footer">
+              <span>Track A - NGO Impact</span>
+              <span class="sep" aria-hidden="true">|</span>
+              <span>Team TechCypher</span>
+              <span class="sep" aria-hidden="true">|</span>
+              <span>Live Netlify Web App</span>
+            </div>
+          </div>
+
+          <aside class="cover-figure" aria-label="A 500 meter visual connecting food surplus and shelter demand">
+            <div class="figure-head">
+              <span>Waste / Need</span>
+              <span>Fig. 01</span>
+            </div>
+            <div class="route-card">
+              <div class="route-label">The proximity problem</div>
+              <div class="distance">500<span class="unit">M</span></div>
+              <div class="distance-note">Distance between surplus + shelter</div>
+              <div class="route" aria-hidden="true">
+                <div class="route-line"></div>
+                <div class="route-node node-a"></div>
+                <div class="route-node node-b"></div>
+                <div class="route-node node-c"></div>
+                <span class="node-text node-a-text">Surplus</span>
+                <span class="node-text node-c-text">30 sec bridge</span>
+                <span class="node-text node-b-text">Shelter</span>
+              </div>
+            </div>
+            <div class="bridge-box">
+              <div class="bridge-title">The missing link is data.</div>
+              <div class="bridge-time">03:00</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-2" aria-label="Slide 2: The Emotional Hook">
+      <div class="slide-inner">
+        <div class="topline">
+          <span class="section-mark">The Emotional Hook</span>
+          <span class="folio"><span class="live-dot" aria-hidden="true"></span> 02 / 06</span>
+        </div>
+        <h2 class="slide-title">A 500-Meter Irony: <span class="title-italic">Waste Meets Want.</span></h2>
+
+        <div class="hook-content">
+          <div class="hook-grid">
+            <article class="hook-card">
+              <div class="hook-card-head">
+                <span>The Kitchen</span>
+                <span class="hook-card-id">01 / Supply</span>
+              </div>
+              <div>
+                <div class="hook-stat">40 kg</div>
+                <p class="hook-copy">The Kitchen: 40kg fresh food trashed at midnight. Cost: ₹0.</p>
+              </div>
+              <div class="hook-card-bottom">
+                <span class="term">Midnight / Fresh</span>
+                <span class="signal">● Waste</span>
+              </div>
+            </article>
+
+            <article class="hook-card shelter">
+              <div class="hook-card-head">
+                <span>The Shelter</span>
+                <span class="hook-card-id">02 / Demand</span>
+              </div>
+              <div>
+                <div class="hook-stat">800 m</div>
+                <p class="hook-copy">The Shelter: 800m away, 60 people sleep hungry due to zero coordination.</p>
+              </div>
+              <div class="hook-card-bottom">
+                <span class="term">60 People / Hungry</span>
+                <span class="signal">● Need</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="hook-highlight">
+            <span class="highlight-index">↓</span>
+            <p>The gap isn't distance. It's a missing 30-second data bridge.</p>
+          </div>
+        </div>
+
+        <div class="footer">
+          <strong>Surplus-to-Shelter</strong>
+          <span class="page-rule"></span>
+          <span>Food rescue / 01</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-3" aria-label="Slide 3: The Root Problem">
+      <div class="slide-inner">
+        <div class="topline">
+          <span class="section-mark">The Root Problem</span>
+          <span class="folio"><span class="live-dot" aria-hidden="true"></span> 03 / 06</span>
+        </div>
+        <h2 class="slide-title">Why good cooked food <span class="title-italic">still becomes waste.</span></h2>
+
+        <div class="problem-grid">
+          <article class="problem-card">
+            <span class="card-index">01 / TIME</span>
+            <div class="problem-stat">2-6 Hours</div>
+            <p class="problem-copy">The spoilage window beats manual WhatsApp coordination.</p>
+            <div class="data-viz">
+              <div class="mini-label">Shelf-life race</div>
+              <div class="time-bars" aria-hidden="true">
+                <div class="time-row"><span>0h</span><div class="bar-track"><div class="bar-fill green" style="width:100%"></div></div></div>
+                <div class="time-row"><span>+2h</span><div class="bar-track"><div class="bar-fill" style="width:64%"></div></div></div>
+                <div class="time-row"><span>+6h</span><div class="bar-track"><div class="bar-fill" style="width:12%"></div></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="problem-card">
+            <span class="card-index">02 / CAPACITY</span>
+            <div class="problem-stat">0/n</div>
+            <p class="problem-copy">The capacity blind spot. We don't know if a shelter has fridge space.</p>
+            <div class="data-viz">
+              <div class="mini-label">Known / Unknown</div>
+              <div class="capacity-grid" aria-hidden="true">
+                <span class="capacity-cell filled"></span><span class="capacity-cell"></span><span class="capacity-cell unknown"></span>
+                <span class="capacity-cell filled"></span><span class="capacity-cell filled"></span><span class="capacity-cell"></span>
+                <span class="capacity-cell"></span><span class="capacity-cell unknown"></span><span class="capacity-cell filled"></span>
+                <span class="capacity-cell"></span><span class="capacity-cell"></span><span class="capacity-cell unknown"></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="problem-card">
+            <span class="card-index">03 / INCENTIVE</span>
+            <div class="problem-stat">₹0/kg</div>
+            <p class="problem-copy">Cost goes the wrong way. Dumping is free; donating is complex.</p>
+            <div class="data-viz">
+              <div class="mini-label">Friction by route</div>
+              <div class="cost-compare">
+                <div class="cost-lane"><strong>₹0</strong><span>Dump / free</span></div>
+                <div class="cost-lane"><strong>High</strong><span>Donate / complex</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="problem-baseline">
+          <div class="baseline-item">Food is usable</div>
+          <span class="baseline-lock">but unconnected</span>
+          <div class="baseline-item">Shelter is ready</div>
+        </div>
+
+        <div class="footer">
+          <strong>Surplus-to-Shelter</strong>
+          <span class="page-rule"></span>
+          <span>System friction / 02</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-4" aria-label="Slide 4: The Core Solution">
+      <div class="slide-inner">
+        <div class="topline">
+          <span class="section-mark">The Core Solution</span>
+          <span class="folio"><span class="live-dot" aria-hidden="true"></span> 04 / 06</span>
+        </div>
+        <h2 class="slide-title">A pipeline that <span class="title-italic">beats biological decay.</span></h2>
+
+        <div class="pipeline" aria-label="Pipeline: intake, triage, dispatch">
+          <span class="pipeline-node">01 / Intake</span>
+          <span class="pipeline-link"></span>
+          <span class="pipeline-node">02 / Triage</span>
+          <span class="pipeline-link"></span>
+          <span class="pipeline-node">03 / Dispatch</span>
+        </div>
+
+        <div class="solution-grid">
+          <article class="solution-card">
+            <div class="solution-card-head">
+              <span class="card-index">01 / INTAKE</span>
+              <span class="tag">Fast</span>
+            </div>
+            <div class="solution-stat">Under 3 Min</div>
+            <p class="solution-copy">Frictionless donor intake form.</p>
+            <div class="card-visual" aria-hidden="true">
+              <div class="mini-label">Donor signal</div>
+              <div class="form-lines">
+                <div class="form-line"></div>
+                <div class="form-line short"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="solution-card">
+            <div class="solution-card-head">
+              <span class="card-index">02 / TRIAGE</span>
+              <span class="tag alert">Urgent</span>
+            </div>
+            <div class="solution-stat">Under 2 Hrs</div>
+            <p class="solution-copy">Expiry triage engine flags urgent food in red.</p>
+            <div class="card-visual">
+              <div class="mini-label">Expiry priority</div>
+              <div class="triage-scale"></div>
+            </div>
+          </article>
+
+          <article class="solution-card">
+            <div class="solution-card-head">
+              <span class="card-index">03 / DISPATCH</span>
+              <span class="tag">Capped</span>
+            </div>
+            <div class="solution-stat">50kg Cap</div>
+            <p class="solution-copy">Capacity-aware dispatch prevents secondary dumping.</p>
+            <div class="card-visual">
+              <div class="mini-label">Shelter capacity</div>
+              <div class="capacity-meter" aria-hidden="true">
+                <div class="meter-track"><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="meter-labels"><span>0</span><span>50 kg</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="footer">
+          <strong>Surplus-to-Shelter</strong>
+          <span class="page-rule"></span>
+          <span>Rescue pipeline / 03</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-5" aria-label="Slide 5: Architecture and Edge Cases">
+      <div class="slide-inner">
+        <div class="topline">
+          <span class="section-mark">Architecture &amp; Edge Cases</span>
+          <span class="folio"><span class="live-dot" aria-hidden="true"></span> 05 / 06</span>
+        </div>
+        <h2 class="slide-title">Engineered for Reality: <span class="title-italic">Handling Failure.</span></h2>
+
+        <div class="architecture-band" aria-label="Architecture: donor, Firebase live layer, triage engine, NGO">
+          <div class="arch-node">Donor Intake</div>
+          <div class="arch-node core">Firebase / Live Layer</div>
+          <div class="arch-node">Triage Engine</div>
+          <div class="arch-node">Matched NGO</div>
+        </div>
+
+        <div class="risk-grid">
+          <article class="risk-card">
+            <span class="card-index">01 / SAFETY</span>
+            <h3 class="risk-title">Spoilage Cut-off</h3>
+            <p class="risk-copy">Auto-cancels dispatch if shelf-life drops under 45 mins. Zero liability.</p>
+            <div class="risk-visual">
+              <div class="mini-label">Safety threshold</div>
+              <div class="cutoff-track"><span class="cutoff-marker"></span></div>
+            </div>
+          </article>
+
+          <article class="risk-card">
+            <span class="card-index">02 / FAILOVER</span>
+            <h3 class="risk-title">Capacity Triage</h3>
+            <p class="risk-copy">Dynamic routing cascades to the next NGO if the 50kg limit is hit.</p>
+            <div class="risk-visual">
+              <div class="mini-label">Routing cascade</div>
+              <div class="cascade" aria-hidden="true">
+                <div class="cascade-node active">NGO 01</div>
+                <div class="cascade-arrow">→</div>
+                <div class="cascade-node">NGO 02</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="risk-card">
+            <span class="card-index">03 / SYNC</span>
+            <h3 class="risk-title">0-Lag Architecture</h3>
+            <p class="risk-copy">Firebase real-time sync without page reloads.</p>
+            <div class="risk-visual">
+              <div class="mini-label">Event path</div>
+              <div class="sync-row" aria-hidden="true"><span>Write</span><i></i><span>Sync</span><i></i><span>Update</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="footer">
+          <strong>Surplus-to-Shelter</strong>
+          <span class="page-rule"></span>
+          <span>Resilience layer / 04</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide impact" id="slide-6" aria-label="Slide 6: The Business Model Impact">
+      <div class="slide-inner">
+        <div class="topline">
+          <span class="section-mark">The Business Model (Impact)</span>
+          <span class="folio"><span class="live-dot" aria-hidden="true"></span> 06 / 06</span>
+        </div>
+        <h2 class="slide-title">A live Sec 80G certificate, <span class="title-italic">printed on every rescue.</span></h2>
+
+        <div class="impact-grid">
+          <div class="formula-stack" aria-label="Impact computation formulas">
+            <div class="formula-row">
+              <span class="formula-label">Meals</span>
+              <span class="formula"><span class="variable">Qty</span> × 3</span>
+            </div>
+            <div class="formula-row">
+              <span class="formula-label">CO2e Diverted</span>
+              <span class="formula"><span class="variable">Qty</span> × 2.5 kg</span>
+            </div>
+            <div class="formula-row">
+              <span class="formula-label">Tax Value</span>
+              <span class="formula"><span class="variable">Qty</span> × ₹20</span>
+            </div>
+          </div>
+
+          <div class="certificate-wrap">
+            <article class="certificate" aria-label="Illustrative impact certificate for a 100 kilogram rescue">
+              <div class="certificate-top">
+                <span class="certificate-kicker">Sec 80G / Live Impact Record</span>
+                <span class="live-stamp">Ready to print</span>
+              </div>
+              <h3 class="certificate-title">Food Rescue Certificate</h3>
+              <div class="certificate-sub">Illustrative calculation / 100 kg input</div>
+              <div class="certificate-input">
+                <span>Rescued quantity</span>
+                <strong>100 kg</strong>
+              </div>
+              <div class="certificate-results">
+                <div class="certificate-result">
+                  <span class="result-value">300</span>
+                  <span class="result-label">Meals</span>
+                </div>
+                <div class="certificate-result">
+                  <span class="result-value">250 kg</span>
+                  <span class="result-label">CO2e Diverted</span>
+                </div>
+                <div class="certificate-result">
+                  <span class="result-value">₹2,000</span>
+                  <span class="result-label">Tax Value</span>
+                </div>
+              </div>
+              <div class="certificate-footer">
+                <span>Surplus-to-Shelter</span>
+                <span>Every rescue / One audit trail</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="impact-note">
+          <span class="note-label">Audit Layer</span>
+          <p>Immutable audit trail for CSR filings and automated ESG receipts</p>
+          <span class="folio">06 / 06</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="screen-hint" aria-hidden="true">Scroll to present / Ctrl+P to export</div>
+
+  <script>
+    (() => {
+      const slides = [...document.querySelectorAll('.slide')];
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let current = 0;
+
+      if (!reducedMotion && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.55) {
+              current = slides.indexOf(entry.target);
+            }
+          });
+        }, { threshold: [0.55, 0.75] });
+        slides.forEach((slide) => observer.observe(slide));
+      }
+
+      window.addEventListener('keydown', (event) => {
+        const nextKeys = ['ArrowDown', 'ArrowRight', 'PageDown', ' '];
+        const previousKeys = ['ArrowUp', 'ArrowLeft', 'PageUp'];
+        if (nextKeys.includes(event.key)) {
+          event.preventDefault();
+          current = Math.min(slides.length - 1, current + 1);
+          slides[current].scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+        } else if (previousKeys.includes(event.key)) {
+          event.preventDefault();
+          current = Math.max(0, current - 1);
+          slides[current].scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+        } else if (event.key === 'Home') {
+          event.preventDefault();
+          slides[0].scrollIntoView({ behavior: 'auto' });
+        } else if (event.key === 'End') {
+          event.preventDefault();
+          slides[slides.length - 1].scrollIntoView({ behavior: 'auto' });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
