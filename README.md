@@ -26,10 +26,10 @@ Surplus-to-Shelter closes that loop in a single screen:
 
 ## Features
 
-- ** frictionless 60-second intake** — Food item, quantity (kg), shelf-life (hrs). That's it. No multi-step forms.
+- **Frictionless 60-second intake** — Food item, quantity (kg), shelf-life (hrs). That's it. No multi-step forms.
 - **Live ESG calculator** — Meals, CO₂e diverted and Sec 80G tax credit update keystroke-by-keystroke as the operator types the quantity.
 - **Automatic spoilage triage** — Any batch with **≤ 2 hours** shelf-life flips to a red **⚠ URGENT · CRITICAL SPOILAGE RISK** card with a thick terracotta border and is impossible to miss.
-- ** Dispatch lifecycle** — `PENDING` (amber) → *Assign Volunteer Driver* → `DISPATCHED` with a locked green **✓ Driver En-Route** button. Status is written back to Firestore so every connected device sees it instantly.
+- **Dispatch lifecycle** — `PENDING` (amber) → *Assign Volunteer Driver* → `DISPATCHED` with a locked green **✓ Driver En-Route** button. Status is written back to Firestore so every connected device sees it instantly.
 - **Real-time sync** — Firestore `onSnapshot` keeps the whole pipeline live across devices: kitchen tablet, dispatcher laptop, NGO dashboard.
 - **Offline / demo fallback** — Leave `firebaseConfig` empty (or as placeholders) and the app boots into a seeded **local demo mode**. No backend needed for a demo, a pitch or a hackathon judge.
 - **Input safety** — Expired batches are rejected, quantity must be positive, numbers are validated, and the page **never reloads** on submit (single-page app behaviour with plain ES6 modules).
